@@ -8,12 +8,16 @@ include_directories(include)
 include_directories(test)
 
 add_library(learn_you_some_cpp
-  src/greet.cpp
+  src/0_greet.cc
+  src/1_basic_math.cc
+  src/2_basic_strings.cc
   # Add more source files here
 )
 
 add_executable(run_tests
-  test/test_greet.cpp
+  test/0_test_greet.cc
+  test/1_test_basic_math.cc
+  test/2_test_basic_strings.cc
   # Add more test files here
 )
 

@@ -1,0 +1,6 @@
+-x
+c++
+-I./include
+-I./test
+-I./src
+-std=c++17
