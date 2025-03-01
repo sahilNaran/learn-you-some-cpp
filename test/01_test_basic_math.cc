@@ -1,4 +1,4 @@
-#include "basic_math.h"
+#include "01_basic_math.h"
 #include "catch.hpp"
 
 TEST_CASE("Basic math operations work correctly", "[basicmath]") {

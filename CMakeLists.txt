@@ -8,16 +8,32 @@ include_directories(include)
 include_directories(test)
 
 add_library(learn_you_some_cpp
-  src/0_greet.cc
-  src/1_basic_math.cc
-  src/2_basic_strings.cc
+  src/00_greet.cc
+  src/01_basic_math.cc
+  src/02_basic_strings.cc
+  src/03_basic_chars.cc
+  src/04_control_flow.cc
+  src/05_basic_functions.cc
+  src/06_arrays_and_memory_basics.cc
+  src/07_pointers_and_references.cc
+  src/08_dynamic_memory.cc
+  src/09_bitwise.cc
+  src/10_algorithm_basics.cc
   # Add more source files here
 )
 
 add_executable(run_tests
-  test/0_test_greet.cc
-  test/1_test_basic_math.cc
-  test/2_test_basic_strings.cc
+  test/00_test_greet.cc
+  test/01_test_basic_math.cc
+  test/02_test_basic_strings.cc
+  test/03_test_basic_chars.cc
+  test/04_test_control_flow.cc
+  test/05_test_basic_functions.cc
+  test/06_test_arrays_and_memory_basics.cc
+  test/07_test_pointers_and_references.cc
+  test/08_test_dynamic_memory.cc
+  test/09_test_bitwise.cc
+  test/10_test_algorithm_basics.cc
   # Add more test files here
 )
 

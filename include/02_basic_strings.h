@@ -1,5 +1,5 @@
-#ifndef BASIC_STRING_H
-#define BASIC_STRING_H
+#ifndef BASIC_STRINGS_H
+#define BASIC_STRINGS_H
 #include <cstddef>
 #include <string>
 
