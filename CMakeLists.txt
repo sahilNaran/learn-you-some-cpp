@@ -19,6 +19,11 @@ add_library(learn_you_some_cpp
   src/08_dynamic_memory.cc
   src/09_bitwise.cc
   src/10_algorithm_basics.cc
+  src/11_stl_containers.cc
+  src/12_stl_algorithms.cc
+  src/17_recursion.cc
+  src/18_recursion_collections.cc
+  src/19_backtracking.cc
   # Add more source files here
 )
 
@@ -34,6 +39,15 @@ add_executable(run_tests
   test/08_test_dynamic_memory.cc
   test/09_test_bitwise.cc
   test/10_test_algorithm_basics.cc
+  test/11_test_stl_containers.cc
+  test/12_test_stl_algorithms.cc
+  test/13_test_custom_vectors.cc
+  test/14_test_singly_linked_list.cc
+  test/15_test_doubly_linked_list.cc
+  test/16_test_linked_list_algorithms.cc
+  test/17_test_recursion.cc
+  test/18_test_recursion_collections.cc
+  test/19_test_backtracking.cc
   # Add more test files here
 )
 
