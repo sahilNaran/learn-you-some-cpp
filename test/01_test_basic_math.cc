@@ -1,7 +1,7 @@
 #include "01_basic_math.h"
 #include "catch.hpp"
 
-TEST_CASE("Basic math operations work correctly", "[basicmath]") {
+TEST_CASE("Basic math operations work correctly", "[basic_math]") {
   SECTION("Addition") {
     REQUIRE(add(5, 3) == 8);
     REQUIRE(add(-1, 1) == 0);
