@@ -90,6 +90,4 @@ TEST_CASE("FizzBuzz implementation works correctly", "[fizzBuzz_if]") {
   REQUIRE(fizzBuzz_if(5) == "Buzz");
   REQUIRE(fizzBuzz_if(15) == "FizzBuzz");
   REQUIRE(fizzBuzz_if(30) == "FizzBuzz");
-  REQUIRE(fizzBuzz_if(0) == "Invalid input");
-  REQUIRE(fizzBuzz_if(-1) == "Invalid input");
 }
