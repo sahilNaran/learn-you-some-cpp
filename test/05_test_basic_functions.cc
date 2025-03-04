@@ -1,7 +1,7 @@
 #include "05_basic_functions.h"
 #include "catch.hpp"
 
-TEST_CASE("Temperature conversions work correctly", "[temp]") {
+TEST_CASE("Temperature conversions work correctly", "[basic_functions]") {
   SECTION("Celsius to Fahrenheit") {
     REQUIRE(temperature::to_fahrenheit(0.0) == Approx(32.0));
     REQUIRE(temperature::to_fahrenheit(100.0) == Approx(212.0));
