@@ -1,7 +1,7 @@
 #include "06_arrays_and_memory_basics.h"
 #include "catch.hpp"
 
-TEST_CASE("String utilities work correctly", "[strings]") {
+TEST_CASE("String utilities work correctly", "[arrays_and_memory_basics]") {
   SECTION("String length") {
     REQUIRE(my_strlen("") == 0);
     REQUIRE(my_strlen("hello") == 5);
