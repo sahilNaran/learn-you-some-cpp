@@ -1,0 +1,75 @@
+name: Sync Directories to Master
+
+on:
+  push:
+    branches:
+      - implementation
+
+jobs:
+  sync-to-master:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout implementation branch
+        uses: actions/checkout@v3
+        with:
+          ref: implementation
+          fetch-depth: 0
+          token : ${{ secrets.SYNC_TOKEN }}
+      
+      # Use paths-filter to check if relevant directories changed
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            test_dirs:
+              - 'test/**'
+            lessons_dirs:
+              - 'lessons/**'
+      
+      # Only proceed if relevant changes were detected
+      - name: Sync directories to master
+        if: steps.filter.outputs.test_dirs == 'true' || steps.filter.outputs.lessons_dirs == 'true'
+        run: |
+          # Store current branch files
+          echo "Saving test and lessons directories from implementation branch"
+          mkdir -p /tmp/sync_dirs
+          
+          if [ -d "test" ]; then
+            cp -r test /tmp/sync_dirs/
+          fi
+          
+          if [ -d "lessons" ]; then
+            cp -r lessons /tmp/sync_dirs/
+          fi
+          
+          # Switch to master branch
+          echo "Switching to master branch"
+          git fetch origin master
+          git checkout master
+          
+          # Update directories
+          echo "Updating directories in master branch"
+          
+          if [ -d "/tmp/sync_dirs/test" ]; then
+            rm -rf test
+            cp -r /tmp/sync_dirs/test ./
+          fi
+          
+          if [ -d "/tmp/sync_dirs/lessons" ]; then
+            rm -rf lessons
+            cp -r /tmp/sync_dirs/lessons ./
+          fi
+          
+          # Configure git
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          
+          # Commit changes if any
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            echo "Committing and pushing changes"
+            git commit -m "Sync test and lessons directories from implementation branch"
+            git push origin master
+          fi
