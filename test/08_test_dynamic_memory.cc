@@ -1,7 +1,7 @@
 #include "08_dynamic_memory.h"
 #include "catch.hpp"
 
-TEST_CASE("Dynamic array operations work correctly", "[dynamic_array]") {
+TEST_CASE("Dynamic array operations work correctly", "[dynamic_memory]") {
   SECTION("Construction and basic operations") {
     DynamicArray arr(5);
     REQUIRE(arr.getSize() == 5);

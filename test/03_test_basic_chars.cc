@@ -1,7 +1,7 @@
 #include "03_basic_chars.h"
 #include "catch.hpp"
 
-TEST_CASE("Character operations work correctly", "[char]") {
+TEST_CASE("Character operations work correctly", "[basic_chars]") {
   SECTION("Character type checking") {
     REQUIRE(isDigit('0') == true);
     REQUIRE(isDigit('9') == true);

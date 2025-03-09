@@ -1,7 +1,7 @@
 #include "07_pointers_and_references.h"
 #include "catch.hpp"
 
-TEST_CASE("Pointer operations work correctly", "[pointers]") {
+TEST_CASE("Pointer operations work correctly", "[pointers_and_references]") {
   SECTION("Swap with pointers") {
     int a = 5, b = 10;
     swap_ptr(&a, &b);
