@@ -3,23 +3,27 @@
 
 // Constructor
 DynamicArray::DynamicArray(size_t initialSize) {
-  // Your code here - allocate memory for 'initialSize' integers
+  data = new int[initialSize];
+  size = initialSize;
 }
 
 // Destructor
-DynamicArray::~DynamicArray() {
-  // Your code here - free allocated memory
-}
+DynamicArray::~DynamicArray() { delete[] data; }
 
 // Get element at index
 int DynamicArray::get(size_t index) const {
-  // Your code here - with bounds checking
-  return 0; // Replace with correct implementation
+  if (index < 0 || index > size - 1) {
+    throw std::out_of_range("index out of bounds");
+  }
+  return data[index];
 }
 
 // Set element at index
 void DynamicArray::set(size_t index, int value) {
-  // Your code here - with bounds checking
+  if (index < 0 || index > size - 1) {
+    throw std::out_of_range("index out of bounds");
+  }
+  data[index] = value;
 }
 
 // Get current size
@@ -27,5 +31,15 @@ size_t DynamicArray::getSize() const { return size; }
 
 // Resize the array
 void DynamicArray::resize(size_t newSize) {
-  // Your code here - allocate new memory and copy existing elements
+  int *newData = new int[newSize];
+
+  size_t copySize = (newSize < size) ? newSize : size;
+
+  for (int i = 0; i < copySize; i++) {
+    newData[i] = data[i];
+  }
+
+  delete[] data;
+  data = newData;
+  size = newSize;
 }
