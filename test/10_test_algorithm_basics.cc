@@ -2,7 +2,7 @@
 #include "catch.hpp"
 #include <iostream>
 
-TEST_CASE("Search algorithms correctness", "[search]") {
+TEST_CASE("Search algorithms correctness", "[algorithm_basics]") {
   int arr[] = {1, 5, 10, 15, 20, 25, 30, 35, 40, 45};
   int size = sizeof(arr) / sizeof(arr[0]);
 
@@ -19,7 +19,7 @@ TEST_CASE("Search algorithms correctness", "[search]") {
   }
 }
 
-TEST_CASE("Count occurrences", "[count]") {
+TEST_CASE("Count occurrences", "[algorithm_basics_count]") {
   int arr[] = {1, 2, 2, 2, 3, 3, 4, 5, 5, 5, 5, 5};
   int size = sizeof(arr) / sizeof(arr[0]);
 
@@ -32,7 +32,7 @@ TEST_CASE("Count occurrences", "[count]") {
   REQUIRE(count_occurrences_efficient(arr, size, 6) == 0);
 }
 
-TEST_CASE("Algorithm efficiency comparison", "[efficiency]") {
+TEST_CASE("Algorithm efficiency comparison", "[algorithm_basics_efficiency]") {
   // Generate a large sorted array
   const int size = 1000000;
   std::vector<int> large_arr(size);
