@@ -25,6 +25,27 @@ Benefits of two's complement:
 - Only one representation of zero (unlike sign-magnitude)
 - The most significant bit acts as the sign bit (0 for positive, 1 for negative)
 
+### Number Representation in Code
+In C++ and many other programming languages, numbers can be represented in different formats:
+
+1. **Decimal Notation**: The standard base-10 representation we use every day.
+   - Example: `42`, `255`, `1024`
+
+2. **Binary Notation (0b prefix)**: Explicitly represents the binary bits.
+   - Example: `0b1010` (decimal 10), `0b11111111` (decimal 255)
+   - Each digit is either 0 or 1, representing individual bits
+   - The `0b` prefix tells the compiler this is a binary number
+
+3. **Hexadecimal Notation (0x prefix)**: Base-16 representation, using digits 0-9 and A-F.
+   - Example: `0xFF` (decimal 255), `0x1A` (decimal 26)
+   - Each hex digit represents exactly 4 binary bits
+   - The `0x` prefix tells the compiler this is a hexadecimal number
+
+Converting between these formats:
+- `0xFF` = `0b11111111` = decimal 255
+- `0x0F` = `0b00001111` = decimal 15
+- `42` = `0b00101010` = `0x2A`
+
 ### Bitwise Operators Implementation
 Bitwise operations are implemented directly in CPU hardware:
 **AND (&)**: Sets a bit in the result if the corresponding bits in both operands are 1
@@ -198,6 +219,47 @@ value = 00101010, position = 1
 mask = 1 << 1 = 00000010
 00101010 ^ 00000010 = 00101000 (bit at position 1 flipped from 0 to 1)
 ```
+
+### Practical Examples with Different Notations
+
+Here are examples showing how the same operations work with different number notations:
+
+**AND operation**:
+```
+Binary:       0b1100 & 0b1010 = 0b1000
+Hexadecimal:  0xFF & 0x0F = 0x0F
+Decimal:      12 & 10 = 8
+```
+
+**OR operation**:
+```
+Binary:       0b1100 | 0b1010 = 0b1110
+Hexadecimal:  0xF0 | 0x0F = 0xFF
+Decimal:      12 | 10 = 14
+```
+
+**XOR operation**:
+```
+Binary:       0b1100 ^ 0b1010 = 0b0110
+Hexadecimal:  0xFF ^ 0xFF = 0x00
+Decimal:      12 ^ 10 = 6
+```
+
+**Left Shift**:
+```
+Binary:       0b0001 << 3 = 0b1000
+Hexadecimal:  0x01 << 3 = 0x08
+Decimal:      1 << 3 = 8
+```
+
+**Right Shift**:
+```
+Binary:       0b1000 >> 3 = 0b0001
+Hexadecimal:  0x08 >> 3 = 0x01
+Decimal:      8 >> 3 = 1
+```
+
+These examples demonstrate how bitwise operations function identically regardless of which notation you use to represent the numbers.
 
 ### Bitmasks and Flags
 Bitmasks allow multiple boolean flags to be stored efficiently in a single integer:
