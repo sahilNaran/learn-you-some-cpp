@@ -116,29 +116,87 @@ Bit shifts are extremely efficient at the hardware level and are commonly used f
 
 ### Bit Manipulation Applications
 Bitwise operations enable efficient implementations of various operations:
+
 1. **Checking if a bit is set**:
 ```cpp
 bool isBitSet(int value, int position) {
     return (value & (1 << position)) != 0;
 }
 ```
+This function works by:
+- Creating a mask with only the bit at `position` set to 1: `(1 << position)`
+- Using AND to compare this mask with the original value
+- If the result is non-zero, the bit was set; otherwise, it was not
+
+Example:
+```
+value = 00101010, position = 3
+mask = 1 << 3 = 00001000
+00101010 & 00001000 = 00001000 (non-zero, so bit is set)
+
+value = 00101010, position = 0
+mask = 1 << 0 = 00000001
+00101010 & 00000001 = 00000000 (zero, so bit is not set)
+```
+
 2. **Setting a bit**:
 ```cpp
 int setBit(int value, int position) {
     return value | (1 << position);
 }
 ```
+This function works by:
+- Creating a mask with only the bit at `position` set to 1: `(1 << position)`
+- Using OR to combine this mask with the original value
+- Since 1 OR x = 1 (for any x), the bit at that position becomes 1
+
+Example:
+```
+value = 00101010, position = 0
+mask = 1 << 0 = 00000001
+00101010 | 00000001 = 00101011 (bit at position 0 is now set)
+```
+
 3. **Clearing a bit**:
 ```cpp
 int clearBit(int value, int position) {
     return value & ~(1 << position);
 }
 ```
+This function works by:
+- Creating a mask with only the bit at `position` set to 1: `(1 << position)`
+- Inverting this mask using NOT: `~(1 << position)` (all bits are 1 except position)
+- Using AND to apply this inverted mask to the original value
+- Since 0 AND x = 0 (for any x), the bit at that position becomes 0
+
+Example:
+```
+value = 00101010, position = 3
+mask = 1 << 3 = 00001000
+inverted mask = ~00001000 = 11110111
+00101010 & 11110111 = 00100010 (bit at position 3 is now cleared)
+```
+
 4. **Toggling a bit**:
 ```cpp
 int toggleBit(int value, int position) {
     return value ^ (1 << position);
 }
+```
+This function works by:
+- Creating a mask with only the bit at `position` set to 1: `(1 << position)`
+- Using XOR to apply this mask to the original value
+- Since 1 XOR 0 = 1 and 1 XOR 1 = 0, the bit at that position flips its state
+
+Example:
+```
+value = 00101010, position = 3
+mask = 1 << 3 = 00001000
+00101010 ^ 00001000 = 00100010 (bit at position 3 flipped from 1 to 0)
+
+value = 00101010, position = 1
+mask = 1 << 1 = 00000010
+00101010 ^ 00000010 = 00101000 (bit at position 1 flipped from 0 to 1)
 ```
 
 ### Bitmasks and Flags
