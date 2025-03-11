@@ -36,5 +36,10 @@ TEST_CASE("STL container operations", "[stl]") {
 
     std::vector<int> result2 = find_intersection({1, 2, 3}, {4, 5, 6});
     REQUIRE(result2.empty());
+
+    std::vector<int> result3 = find_intersection({1, 2, 3}, {2, 2, 3, 3});
+    std::sort(result3.begin(), result3.end()); // Sort for comparison
+    std::vector<int> expected3 = {2, 3};
+    REQUIRE(result3 == expected3);
   }
 }
