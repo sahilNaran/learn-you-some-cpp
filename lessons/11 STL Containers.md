@@ -96,8 +96,8 @@ This uses a hash map because:
 ### Set Operations with STL
 The `find_intersection` function demonstrates using sets for mathematical operations:
 ```cpp
-std::vector<int> find_intersection(const std::vector<int> &nums1, 
                                     const std::vector<int> &nums2) {
+                                        std::vector<int> find_intersection(const std::vector<int> &nums1, 
     std::set<int> set1(nums1.begin(), nums1.end());
     std::vector<int> result;
     
